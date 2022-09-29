@@ -1,12 +1,12 @@
 high_score = 0
 deaths = 0
 timer1 = 0
+import pygame as p
+import sys
+from class_snake import Board, Snake 
+import random
+import time
 while True:
-    import pygame as p
-    import sys
-    from class_snake import Board, Snake 
-    import random
-    import time
     score = 0
     board = Board((600,650), 'lightgreen')
     snake = Snake(board.size[0]//30, 'blue', [[x*board.size[0]//30, 0] for x in range(0,4)],[0, 0])
