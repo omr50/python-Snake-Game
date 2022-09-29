@@ -66,22 +66,15 @@ while True:
             snake.coords[-1][1] = 580 
         if snake.coords[-1][1] > 580:
             snake.coords[-1][1] = 0    
-        #print(len(snake.coords))
-    #  print(snake.length)
-    
-        #while len(snake.coords) > snake.length:
+
         snake.snake_move(direction)
         
         snake.coords = snake.coords[(len(snake.coords)-snake.length):]
         screen.fill(board.color)
         
-        #print(snake.coords,'snake coord')
-        # error fixed, error was that apple_coord stayed as [0, 0]
-        # had to return it from apple_generator function and set
-        # the new value of apple_coord to that value
         placed = snake.apple_generator(p, screen, snake.apple_coord, placed)
         score = snake.length - initial_length
-        #print(snake.coords)
+
         snake.draw_snake(p,screen)
         p.draw.rect(screen, 'lightyellow', p.Rect(0, 600, 600,100))
         disp_score = myFont.render(f"Score: {score}", 1, 'black')
@@ -93,20 +86,10 @@ while True:
         screen.blit(disp_High, (480, 600))
         screen.blit(disp_time, (480, 630))
         print(snake.coords)
-        #print(apple_coord, 'apple coord')
+
         p.time.delay(70)
-        #print(snake.coords)
-        #print(random.randrange(20), 'random number test')
-        
-        #print(snake.coords)
+
         p.display.flip()
 
 
-
-# -----------------------------------------------------------------------------------
-    # 1. if done extremely fast snake can go from up to down without turning left or right
-    # thing of a solution for that.
-
-    # 2. place variables like score and death before the first while loop and make extra space at bottom
-    # of the screen for score and deaths and maybe a timer.
 
